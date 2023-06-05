@@ -1,0 +1,12 @@
+<h2>Patient List</h2>
+
+<ul>
+  <li *ngFor="let patient of patients">
+    <div>
+      <strong>{{ patient.name }}</strong> - Age: {{ patient.age }}
+    </div>
+    <div>
+      Contact: {{ patient.contactDetails }}
+    </div>
+  </li>
+</ul>

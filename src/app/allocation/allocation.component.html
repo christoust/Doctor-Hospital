@@ -1,0 +1,23 @@
+<div class="allocation-container">
+    <h2>Doctor Allocation</h2>
+  
+    <div class="doctors-list">
+      <h3>Doctors</h3>
+      <ul>
+        <li *ngFor="let doctor of doctors" (click)="onDoctorSelect(doctor.id)">
+          {{ doctor.name }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="patients-list">
+      <h3>Patients</h3>
+      <ul>
+        <li *ngFor="let patient of patients">
+          {{ patient.name }}
+          <button (click)="allocateDoctor(patient.id)">Allocate Doctor</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
