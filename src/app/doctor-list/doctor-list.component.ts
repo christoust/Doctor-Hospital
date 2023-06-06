@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DoctorService } from '../doctor.service';
 import { Doctor } from '../models/doctor.model';
-
 
 @Component({
   selector: 'app-doctor-list',
@@ -10,6 +9,7 @@ import { Doctor } from '../models/doctor.model';
 })
 export class DoctorListComponent implements OnInit {
   doctors: Doctor[] = [];
+  @Output() doctorSelected = new EventEmitter<number>();
 
   constructor(private doctorService: DoctorService) { }
 
@@ -20,5 +20,9 @@ export class DoctorListComponent implements OnInit {
   getDoctors(): void {
     this.doctorService.getDoctors()
       .subscribe(doctors => this.doctors = doctors);
+  }
+
+  selectDoctor(doctorId: number): void {
+    this.doctorSelected.emit(doctorId);
   }
 }

@@ -1,6 +1,6 @@
 <h2>Doctor List</h2>
 <ul>
-  <li *ngFor="let doctor of doctors">
+  <li *ngFor="let doctor of doctors" (click)="selectDoctor(doctor.id)">
     <div>
       <strong>{{ doctor.name }}</strong> - {{ doctor.specialization }}
     </div>

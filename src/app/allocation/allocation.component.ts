@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Doctor } from '../models/doctor.model';
 import { Patient } from '../models/patient.model';
 import { DoctorService } from '../doctor.service';
@@ -10,9 +10,9 @@ import { PatientService } from '../patient.service';
   styleUrls: ['./allocation.component.css']
 })
 export class AllocationComponent implements OnInit {
+  @Input() selectedDoctorId: number = 0;
   doctors: Doctor[] = [];
   patients: Patient[] = [];
-  selectedDoctorId: number = 0; // Provide a default value
 
   constructor(
     private doctorService: DoctorService,
